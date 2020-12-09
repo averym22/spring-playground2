@@ -65,6 +65,11 @@ public class PracticeController {
         return "The volume of the rectangle is " + volume.toString();
     }
 
+    @RequestMapping("math/area")
+    public String getAres(@RequestParam String type, @RequestParam int radius, @RequestParam int width, @RequestParam int height) {
+
+    }
+
 
 
 }
