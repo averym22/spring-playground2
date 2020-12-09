@@ -78,6 +78,14 @@ public class PracticControllerTest {
 
     }
 
+    @Test
+    public void testMathSum() throws Exception {
+
+        this.mvc.perform(get("/math/sum?n=4&n=5&n=6").accept(MediaType.TEXT_PLAIN))
+                .andExpect(status().isOk())
+                .andExpect(content().string("4 + 5 + 6 = 15"));
+    }
+
 
 
 

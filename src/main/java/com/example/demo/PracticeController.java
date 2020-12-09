@@ -36,9 +36,26 @@ public class PracticeController {
     }
 
     @GetMapping("/math/sum")
-    public String sum(@RequestParam Map querystring) {
-        return querystring.toString();
+    public String sum(@RequestParam Integer [] n) {
+        String value = "";
+        int sum = 0;
+
+        for(int i = 0; i < n.length; i++) {
+            sum += n[i];
+            if (i != n.length - 1) {
+                value += n[i].toString() + " + ";
+            } else {
+                value += n[i].toString() + " = ";
+            }
+
+
+
+        }
+
+        return value + sum;
     }
+
+
 
     @RequestMapping("/math/volume/{length}/{width}/{height}")
     public String getVolume(@PathVariable int length, @PathVariable int width, @PathVariable int height){
