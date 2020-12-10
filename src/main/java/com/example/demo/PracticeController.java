@@ -1,9 +1,13 @@
 package com.example.demo;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
 
 @RestController
 public class PracticeController {
@@ -65,11 +69,56 @@ public class PracticeController {
         return "The volume of the rectangle is " + volume.toString();
     }
 
-    @RequestMapping("math/area")
-    public String getAres(@RequestParam String type, @RequestParam int radius, @RequestParam int width, @RequestParam int height) {
+    @GetMapping("/flights/flight")
+    public Flights getflight() {
+        Flights flight = new Flights();
+        Flights.Ticket ticket1 = new Flights.Ticket();
+        Flights.Ticket.Passenger passenger = new Flights.Ticket.Passenger();
 
+        flight.setDeparts(new Date());
+        passenger.setFirstname("Avery");
+        passenger.setLastname("Merriex");
+        ticket1.setPassenger(passenger);
+        ticket1.setPrice(200);
+        flight.setTickets(Arrays.asList(ticket1));
+        return flight;
+    }
+
+    @GetMapping("/flights/")
+    public  List <Flights> getFlights(){
+
+        Flights flight = new Flights();
+        Flights.Ticket ticket1 = new Flights.Ticket();
+        Flights.Ticket.Passenger passenger = new Flights.Ticket.Passenger();
+
+        flight.setDeparts(new Date());
+        passenger.setFirstname("Avery");
+        passenger.setLastname("Merriex");
+        ticket1.setPassenger(passenger);
+        ticket1.setPrice(200);
+
+        flight.setTickets(Arrays.asList(ticket1));
+
+        Flights flight2 = new Flights();
+        Flights.Ticket ticket2 = new Flights.Ticket();
+        Flights.Ticket.Passenger passenger2 = new Flights.Ticket.Passenger();
+
+        flight2.setDeparts(new Date());
+        passenger2.setFirstname("Some other name");
+        passenger2.setLastname("null");
+        ticket2.setPassenger(passenger2);
+        ticket2.setPrice(400);
+
+        flight2.setTickets(Arrays.asList(ticket2));
+
+
+        return Arrays.asList(flight, flight2);
     }
 
 
-
 }
+
+
+
+
+
