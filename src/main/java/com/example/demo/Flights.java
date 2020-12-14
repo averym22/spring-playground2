@@ -11,7 +11,7 @@ public class Flights {
     private Date departs;
     private List<Ticket> tickets;
 
-    @JsonProperty("Tickets")
+    //@JsonProperty("Tickets")
     public List<Ticket> getTickets() {
         return tickets;
     }
@@ -20,7 +20,7 @@ public class Flights {
         this.tickets = tickets;
     }
 
-    @JsonProperty("Departs")
+    //@JsonProperty("Departs")
     @JsonFormat(pattern = "yyyy-MM-dd")
     public Date getDeparts() {
         return departs;
@@ -35,7 +35,7 @@ public class Flights {
         private Passenger passenger;
         private int price;
 
-        @JsonProperty("Price")
+       // @JsonProperty("Price")
         public int getPrice() {
             return price;
         }
@@ -45,7 +45,7 @@ public class Flights {
             this.price = price;
         }
 
-        @JsonProperty("Passenger")
+       // @JsonProperty("Passenger")
         public Passenger getPassenger() {
             return passenger;
         }
@@ -58,25 +58,25 @@ public class Flights {
 
 
         static class Passenger {
-            private String firstname;
-            private String lastname;
+            private String firstName;
+            private String lastName;
 
-            @JsonProperty("FirstName")
+            //@JsonProperty("FirstName")
             public String getFirstname() {
-                return firstname;
+                return firstName;
             }
 
-            public void setFirstname(String firstname) {
-                this.firstname = firstname;
+            public void setFirstname(String firstName) {
+                this.firstName = firstName;
             }
 
-            @JsonProperty("LastName")
+            //@JsonProperty("LastName")
             public String getLastname() {
-                return lastname;
+                return lastName;
             }
 
-            public void setLastname(String lastname) {
-                this.lastname = lastname;
+            public void setLastname(String lastName) {
+                this.lastName = lastName;
             }
 
 
